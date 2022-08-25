@@ -38,7 +38,7 @@ function handleSuccess(stream) {
   const soundMeter = window.soundMeter = new SoundMeter(window.audioContext);
   soundMeter.connectToSource(stream, function(e) {
     if (e) {
-      alert(e);
+      console.warn(e);
       return;
     }
     meterRefresh = setInterval(() => {
@@ -66,7 +66,7 @@ function start() {
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     window.audioContext = new AudioContext();
   } catch (e) {
-    alert('Web Audio API not supported.');
+    console.warn('Web Audio API not supported.');
   }
 
   navigator.mediaDevices
