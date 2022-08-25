@@ -22,6 +22,7 @@ function SoundMeter(context) {
   const that = this;
   this.script.onaudioprocess = function(event) {
     const input = event.inputBuffer.getChannelData(0);
+    console.log('channelData', input);
     let i;
     let sum = 0.0;
     let clipcount = 0;
